@@ -1,0 +1,121 @@
+[
+    {
+        "inputs": [],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "modelID",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "modelName",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "brandName",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "category",
+                "type": "string"
+            }
+        ],
+        "name": "addModel",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "prodID",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "modelID",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "hashedCustCNIC",
+                "type": "string"
+            }
+        ],
+        "name": "addSoldProduct",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address payable",
+                "name": "_to",
+                "type": "address"
+            }
+        ],
+        "name": "destroySmartContract",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "prodID",
+                "type": "string"
+            }
+        ],
+        "name": "getCustCNIC",
+        "outputs": [
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "prodID",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "hashedNewCustCNIC",
+                "type": "string"
+            }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    }
+]
