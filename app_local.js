@@ -23,18 +23,18 @@ const contract = new web3.eth.Contract(abi, ContractAddress);
 // setter functions
 let addSoldProduct = (prodID, modelID, modelName, walletAdd)=>
                         contract.methods.addSoldProduct(prodID,modelID,modelName).send({from:walletAdd, gas:3000000})
-                        .then(r=>console.log("Transaction hash:",r.transactionHash,"Business Wallet:",r.from)).catch(e=>console.log(e.message))
+                        .then(r=>console.log("Transaction hash:",r.transactionHash,",Business Wallet:",r.from)).catch(e=>console.log(e.message))
 
 let addBuiness = (walletAdd)=>contract.methods.addBuiness(walletAdd).send({from:walletAdd, gas:3000000})
-                        .then(r=>console.log("Transaction hash:",r.transactionHash,"Business Wallet:",r.from)).catch(e=>console.log(e.message))
+                        .then(r=>console.log("Transaction hash:",r.transactionHash,",Business Wallet:",r.from)).catch(e=>console.log(e.message))
 
 let addModel = (modelID, modelName, brandName,category, walletAdd) => 
         contract.methods.addModel(modelID, modelName, brandName, category).send({from:walletAdd, gas:3000000})
-        .then(r=>console.log("Transaction hash:",r.transactionHash,"Business Wallet:",r.from)).catch(e=>console.log(e.message))
+        .then(r=>console.log("Transaction hash:",r.transactionHash,",Business Wallet:",r.from)).catch(e=>console.log(e.message))
 
 let transferOwnership = (prodID, hashedCNIC, walletAdd)=>
         contract.methods.transferOwnership(prodID, hashedCNIC).send({from:walletAdd, gas:3000000})
-        .then(r=>console.log("Transaction hash:",r.transactionHash,"Business Wallet:",r.from)).catch(e=>console.log(e.message))
+        .then(r=>console.log("Transaction hash:",r.transactionHash,",Business Wallet:",r.from)).catch(e=>console.log(e.message))
 
 // getter functions
 let getSoldProduct = (prodID, walletAdd) => 
@@ -117,7 +117,7 @@ function getHistory(startBlockNo)
 }
 
 // call all functions with same attributes
-sameAttrPrintTime(10, transferOwnership, ["1", "xyz"]);
+sameAttrPrintTime(10, getCustCNIC, ["1"]);
 
 // call function with different atttributes then needs to be defined in runConcurrentWithDiffAttrs function
 // diffAttrPrintTime(10, transferOwnership)
