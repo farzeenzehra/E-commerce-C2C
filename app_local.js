@@ -1,13 +1,12 @@
 
 const abi = require('./contract_abi.json')
 const Web3 = require("web3");
-const ContractAddress = '0xaF03DE639f90a7F973C758A5eA5C9a3b0579f488';
-const walletAddOwner = '0xdF8e844F1BA70EC7466229380b80eb66F245Aa85';
+const ContractAddress = '';
 
 // number of wallet address defines concurrent users
-const wallets = ['0x4FD2C724fE0bc55CD3de38f32b219D9eA83e3AFc', 
-                '0xC237303710a8DFe883f1CF642e60A20c77428C0E', 
-                '0x02302C1906193E671b186bff91b93CEE28223dA2']
+const wallets = ['', 
+                '', 
+                '']
                 
 const rpcURL = 'HTTP://127.0.0.1:7545';
 
@@ -23,18 +22,22 @@ const contract = new web3.eth.Contract(abi, ContractAddress);
 // setter functions
 let addSoldProduct = (prodID, modelID, modelName, walletAdd)=>
                         contract.methods.addSoldProduct(prodID,modelID,modelName).send({from:walletAdd, gas:3000000})
-                        .then(r=>console.log("Transaction hash:",r.transactionHash,",Business Wallet:",r.from)).catch(e=>console.log(e.message))
+                        .then(r=>console.log("Transaction hash:",r.transactionHash,",Business Wallet:",r.from))
+                        .catch(e=>console.log(e.message))
 
 let addBuiness = (walletAdd)=>contract.methods.addBuiness(walletAdd).send({from:walletAdd, gas:3000000})
-                        .then(r=>console.log("Transaction hash:",r.transactionHash,",Business Wallet:",r.from)).catch(e=>console.log(e.message))
+                        .then(r=>console.log("Transaction hash:",r.transactionHash,",Business Wallet:",r.from))
+                        .catch(e=>console.log(e.message))
 
 let addModel = (modelID, modelName, brandName,category, walletAdd) => 
         contract.methods.addModel(modelID, modelName, brandName, category).send({from:walletAdd, gas:3000000})
-        .then(r=>console.log("Transaction hash:",r.transactionHash,",Business Wallet:",r.from)).catch(e=>console.log(e.message))
+        .then(r=>console.log("Transaction hash:",r.transactionHash,",Business Wallet:",r.from))
+        .catch(e=>console.log(e.message))
 
 let transferOwnership = (prodID, hashedCNIC, walletAdd)=>
         contract.methods.transferOwnership(prodID, hashedCNIC).send({from:walletAdd, gas:3000000})
-        .then(r=>console.log("Transaction hash:",r.transactionHash,",Business Wallet:",r.from)).catch(e=>console.log(e.message))
+        .then(r=>console.log("Transaction hash:",r.transactionHash,",Business Wallet:",r.from))
+        .catch(e=>console.log(e.message))
 
 // getter functions
 let getSoldProduct = (prodID, walletAdd) => 
