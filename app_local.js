@@ -26,27 +26,29 @@ const contract = new web3.eth.Contract(abi, ContractAddress);
 
 
 async function runConcurrent(runTimes){
+    console.time('codezup')
     console.log("running...")
     let tasks = []
     for(i=0;i<runTimes;i++){
         for (let walletNo in wallets){
             tasks.push(
                 // setter function
-                contract.methods.addSoldProduct("1","1","modelName")
-                .send({from:wallets[walletNo], gas:3000000})
-                .then(r=>console.log("Transaction hash:",r.transactionHash,",Business Wallet:",r.from))
-                .catch(e=>console.log(e.message))
+                // contract.methods.addSoldProduct("1","1","modelName")
+                // .send({from:wallets[walletNo], gas:3000000})
+                // .then(r=>console.log("Transaction hash:",r.transactionHash,",Business Wallet:",r.from))
+                // .catch(e=>console.log(e.message))
 
                 // getter function
-                // contract.methods.getSoldProduct("1")
-                // .call({from:wallets[walletNo], gas:3000000})
-                // .then(r=>console.log("Result:",r))
-                // .catch(e=>console.log(e.message))
+                contract.methods.getSoldProduct("1")
+                .call({from:wallets[walletNo], gas:3000000})
+                .then(r=>console.log("Result:",r))
+                .catch(e=>console.log(e.message))
 
             );
         }
     }
     await Promise.all(tasks);
+    console.timeEnd('codezup');
 }
 
 
