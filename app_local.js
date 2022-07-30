@@ -1,12 +1,14 @@
 
 const abi = require('./contract_abi.json')
 const Web3 = require("web3");
-const ContractAddress = '';
+const ContractAddress = '0xaF03DE639f90a7F973C758A5eA5C9a3b0579f488';
 
 // number of wallet address defines concurrent users
-const wallets = ['', 
-                '', 
-                '']
+const wallets = [
+    '0x4FD2C724fE0bc55CD3de38f32b219D9eA83e3AFc', 
+    // '', 
+    // ''
+            ]
                 
 const rpcURL = 'HTTP://127.0.0.1:7545';
 
@@ -15,7 +17,7 @@ web3.eth.getBlockNumber().then((result) => {
     console.log("Latest Ethereum Block is ", result);
 });
 
-// define all contract functions here
+const contract = new web3.eth.Contract(abi, ContractAddress);
 
 // to check balance of ethers in wallet
 // web3.eth.getBalance(walletAdd).then(console.log);
@@ -36,7 +38,7 @@ async function runConcurrent(runTimes){
 
                 // getter function
                 // contract.methods.getSoldProduct("1")
-                // .call({from:walletAdd, gas:3000000})
+                // .call({from:wallets[walletNo], gas:3000000})
                 // .then(r=>console.log("Result:",r))
                 // .catch(e=>console.log(e.message))
 
