@@ -1,13 +1,14 @@
 
 const abi = require('./contract_abi.json')
 const Web3 = require("web3");
-const ContractAddress = '0xaF03DE639f90a7F973C758A5eA5C9a3b0579f488';
+// enter your contract address
+const ContractAddress = '';
 
 // number of wallet address defines concurrent users
 const wallets = [
-    '0x4FD2C724fE0bc55CD3de38f32b219D9eA83e3AFc', 
-    // '', 
-    // ''
+    '', 
+    '', 
+    ''
             ]
                 
 const rpcURL = 'HTTP://127.0.0.1:7545';
