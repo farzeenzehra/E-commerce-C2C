@@ -39,7 +39,7 @@ async function runConcurrent(runTimes){
 
         if(i%500 == 0){
             const stop = Date.now()
-            console.log(`Time Taken to execute ${runTimes} times  = ${(stop - start)/1000} seconds`);
+            console.log(`Time Taken to execute ${i} times  = ${(stop - start)/1000} seconds`);
         }
     } 
 }
