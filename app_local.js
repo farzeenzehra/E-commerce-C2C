@@ -28,7 +28,7 @@ async function runConcurrent(runTimes){
         // setter function
         await contract.methods.addSoldProduct("1","1","modelName")
         .send({from:walletAdd, gas:3000000})
-        .then(r=>console.log("Transaction hash:",r.transactionHash,",Business Wallet:",r.from))
+        .then(r=>console.log("Transaction hash:",r.transactionHash,",From Wallet:",r.from))
         .catch(e=>console.log(e.message))
 
         // getter function
@@ -36,7 +36,7 @@ async function runConcurrent(runTimes){
         // .call({from:walletAdd, gas:3000000})
         // .then(r=>console.log("Result:",r))
         // .catch(e=>console.log(e.message))
-        
+
         if(runTimes%500 == 0){
             const stop = Date.now()
             console.log(`Time Taken to execute ${runTimes} times  = ${(stop - start)/1000} seconds`);
