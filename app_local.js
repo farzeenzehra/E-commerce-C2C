@@ -5,11 +5,7 @@ const Web3 = require("web3");
 const ContractAddress = '';
 
 // number of wallet address defines concurrent users
-const wallets = [
-    '', 
-    '', 
-    ''
-            ]
+const walletAdd = ''
                 
 const rpcURL = 'HTTP://127.0.0.1:7545';
 
@@ -26,33 +22,27 @@ const contract = new web3.eth.Contract(abi, ContractAddress);
 
 
 async function runConcurrent(runTimes){
-    console.time('codezup')
     console.log("running...")
-    let tasks = []
-    for(i=0;i<runTimes;i++){
-        for (let walletNo in wallets){
-            tasks.push(
-                // setter function
-                // contract.methods.addSoldProduct("1","1","modelName")
-                // .send({from:wallets[walletNo], gas:3000000})
-                // .then(r=>console.log("Transaction hash:",r.transactionHash,",Business Wallet:",r.from))
-                // .catch(e=>console.log(e.message))
+    const start = Date.now()
+    for(i=1;i<=runTimes;i++){
+        // setter function
+        // contract.methods.addSoldProduct("1","1","modelName")
+        // .send({from:walletAdd, gas:3000000})
+        // .then(r=>console.log("Transaction hash:",r.transactionHash,",Business Wallet:",r.from))
+        // .catch(e=>console.log(e.message))
 
-                // getter function
-                contract.methods.getSoldProduct("1")
-                .call({from:wallets[walletNo], gas:3000000})
-                .then(r=>console.log("Result:",r))
-                .catch(e=>console.log(e.message))
-
-            );
+        // getter function
+        await contract.methods.getSoldProduct("1")
+        .call({from:walletAdd, gas:3000000})
+        .then(r=>console.log("Result:",r))
+        .catch(e=>console.log(e.message))
+        if(runTimes%500 == 0){
+            const stop = Date.now()
+            console.log(`Time Taken to execute ${runTimes} times  = ${(stop - start)/1000} seconds`);
         }
-    }
-    await Promise.all(tasks);
-    console.timeEnd('codezup');
+    } 
 }
 
-
-// call concurrently 10 times
-runConcurrent(10);
+runConcurrent(2500);
 
 

@@ -6,6 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node --no-warnings my_app.js",
+    "start2": "node --no-warnings my_app2.js",
+    "start3": "node --no-warnings my_app3.js",
     "local": "node --no-warnings app_local.js"
   },
   "author": "",
