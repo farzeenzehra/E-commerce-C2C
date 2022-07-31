@@ -37,7 +37,7 @@ async function runConcurrent(runTimes){
         // .then(r=>console.log("Result:",r))
         // .catch(e=>console.log(e.message))
 
-        if(runTimes%500 == 0){
+        if(i%500 == 0){
             const stop = Date.now()
             console.log(`Time Taken to execute ${runTimes} times  = ${(stop - start)/1000} seconds`);
         }
